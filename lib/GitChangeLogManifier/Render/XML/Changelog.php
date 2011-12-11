@@ -18,9 +18,14 @@ class Render_XML_Changelog implements IRender_IRender
 			die('not a IChangelog :: ' . __CLASS__);
 		}
 
-		$document = new \DOMDocument('1.0', 'utf-8');
-		$document->formatOutput = true;
+		return renderAsXmlDocument($changelog, $this->_getNewDOMDocument())->saveXML();
+	}
 
+	/**
+	 * @return \DOMDocument
+	 */
+	public function renderAsXmlDocument(IChangeLog $changeLog, \DOMDocument $document)
+	{
 		$changelogs = $document->createElementNS('http://www.w3.org/2000/xmlns/', 'changelogs');
 		$document->appendChild($changelogs);
 
@@ -41,7 +46,19 @@ class Render_XML_Changelog implements IRender_IRender
 
 		$this->_renderLines($changeLog->getLines(), $document, $lines);
 
-		return $document->saveXML();
+		return $document;
+	}
+
+	/**
+	 * @return \DOMDocument
+	 */
+	protected function _getNewDOMDocument()
+	{
+		$document = new \DOMDocument('1.0', 'utf-8');
+		$document->formatOutput = true;
+		$document->preserveWhiteSpace = false;
+
+		return $document;
 	}
 
 	protected function _packNamespace()

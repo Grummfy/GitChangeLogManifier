@@ -8,6 +8,10 @@
  * for more informations or go to http://www.gnu.org/licenses/
  */
 
+/*
+ * Supose you have a folder containing a clone of git://github.com/FSB/Fire-Soft-Board-2.git in $repositoryPath
+ */
+
 //
 // Configuration
 //
@@ -17,7 +21,7 @@ $repositoryPath = '/media/data/my_programmation/serveur/projects/fsb/project/src
 //
 //
 //
-require_once __DIR__ . '/lib/GitChangeLogManifier/Autoloader.php';
+require_once __DIR__ . '/../lib/GitChangeLogManifier/Autoloader.php';
 
 echo \GitChangeLogManifier\ChangeLog_Maker::make($repositoryPath, $lastRevision);
 echo '--------------------', "\n\n\n";

@@ -8,3 +8,4 @@ TODO
  * unit test with atoum
  * more flexible
  * something less ugly
+ * render should load subrender (changelog -> line -> ....)

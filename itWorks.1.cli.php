@@ -8,10 +8,6 @@
  * for more informations or go to http://www.gnu.org/licenses/
  */
 
-/**
- * Export git log to a changelog file as txt, html and fsbcode format
- */
-
 //
 // Configuration
 //
@@ -25,6 +21,7 @@ require_once __DIR__ . '/lib/GitChangeLogManifier/Autoloader.php';
 
 echo \GitChangeLogManifier\ChangeLog_Maker::make($repositoryPath, $lastRevision);
 echo '--------------------', "\n\n\n";
+
 $datas = array(
 		new \GitChangeLogManifier\ChangeLog_Datas_Github_Github(),
 //		new \GitChangeLogManifier\ChangeLog_Datas_FSB_FSB()

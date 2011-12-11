@@ -9,7 +9,7 @@
 
 namespace GitChangeLogManifier;
 
-class ChangeLog implements IChangeLog
+class ChangeLog implements IChangeLog, IRender_IRendable
 {
 	protected $_lines;
 
@@ -28,9 +28,19 @@ class ChangeLog implements IChangeLog
 		return $this->_lines;
 	}
 
+	public function render()
+	{
+		if (empty($this->_render))
+		{
+			$this->_render = new Render_String_Changelog();
+		}
+
+		return $this->_render->render($this);
+	}
+
 	public function __toString()
 	{
-		return 'Changelog: ' . implode("\n", $this->_lines);
+		return $this->render();
 	}
 
 }

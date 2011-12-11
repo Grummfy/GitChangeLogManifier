@@ -34,5 +34,11 @@ echo \GitChangeLogManifier\Render_Render::renderChangelog($changelog);
 echo '--------------------', "\n\n\n";
 // render with a specific one!
 echo \GitChangeLogManifier\Render_Render::renderChangelog($changelog, '\GitChangeLogManifier\Render_BBCode');
+echo '--------------------', "\n\n\n";
+
+\GitChangeLogManifier\Render_DataKeys::addRenderByKey('GitChangeLogManifier\ChangeLog_Datas_Github_Issue', new \GitChangeLogManifier\Render_XML_Data_GithubIssue());
+\GitChangeLogManifier\Render_DataKeys::addRenderByKey('GitChangeLogManifier\ChangeLog_Datas_FSB_Topic', new \GitChangeLogManifier\Render_XML_Data_FSBTopic());
+
+echo \GitChangeLogManifier\Render_Render::renderChangelog($changelog, '\GitChangeLogManifier\Render_XML');
 
 # EOF

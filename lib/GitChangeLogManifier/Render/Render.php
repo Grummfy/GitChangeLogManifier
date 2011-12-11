@@ -11,16 +11,6 @@ namespace GitChangeLogManifier;
 
 class Render_Render
 {
-	public static function factoryChangelog($renderType = null)
-	{
-		$render = $renderType . '_Changelog';
-		if (!empty($renderType) && class_exists($render))
-		{
-			return new $render();
-		}
-		return new Render_Default_Changelog();
-	}
-
 	public static function renderChangelog(IChangeLog $changelog, $renderType = null)
 	{
 		if (empty($renderType) && $changelog instanceof IRender_IRendable)
@@ -29,10 +19,9 @@ class Render_Render
 		}
 		else
 		{
-			return self::factoryChangelog($renderType)->render($changelog);
+			return Render_Factory::factoryChangelog($renderType)->render($changelog);
 		}
 	}
-
 }
 
 # EOF

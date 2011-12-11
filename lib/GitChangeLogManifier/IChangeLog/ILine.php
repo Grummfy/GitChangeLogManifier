@@ -20,7 +20,7 @@ interface IChangeLog_ILine
 	/**
 	 * @return array(IChangeLog_IData)
 	 */
-	public function getDatas();
+	public function getDatas($compact = true);
 
 	public function __toString();
 }

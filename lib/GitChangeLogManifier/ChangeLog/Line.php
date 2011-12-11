@@ -31,9 +31,9 @@ class ChangeLog_Line implements IChangeLog_ILine
 		$this->_datas[((empty($key)) ? self::DEFAULT_KEY : $key)][] = $data;
 	}
 
-	public function getDatas()
+	public function getDatas($compact = true)
 	{
-		return $this->_compactDatas();
+		return $compact ? $this->_compactDatas() : $this->_datas;
 	}
 
 	public function __toString()

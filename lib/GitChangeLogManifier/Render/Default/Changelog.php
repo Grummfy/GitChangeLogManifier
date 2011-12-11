@@ -21,7 +21,7 @@ class Render_Default_Changelog implements IRender_IRender
 			return 'Changelog: ' . $this->_renderLines($changelog->getLines());
 		}
 
-		die('not a IChangelog');
+		die('not a IChangelog :: ' . __CLASS__);
 	}
 
 	protected function _renderLines(array $lines = null)

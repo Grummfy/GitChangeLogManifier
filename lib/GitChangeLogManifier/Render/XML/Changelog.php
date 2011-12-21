@@ -26,7 +26,7 @@ class Render_XML_Changelog implements IRender_IRender
 	 */
 	public function renderAsXmlDocument(IChangeLog $changeLog, \DOMDocument $document)
 	{
-		$changelogs = $document->createElementNS('http://www.w3.org/2000/xmlns/', 'changelogs');
+		$changelogs = $document->createElement('changelogs');
 		$document->appendChild($changelogs);
 
 		foreach($this->_packNamespace() as $ns => $url)

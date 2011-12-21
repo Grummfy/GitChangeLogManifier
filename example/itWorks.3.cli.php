@@ -42,7 +42,7 @@ $DOMDocument = new \DOMDocument('1.0', 'utf-8');
 $DOMDocument->formatOutput = true;
 $DOMDocument->preserveWhiteSpace = false;
 
-$xslt = $DOMDocument->createProcessingInstruction('xml-stylesheet', 'type="text/xsl" href="/utils/xsl/changelog.xsl"');
+$xslt = $DOMDocument->createProcessingInstruction('xml-stylesheet', 'type="text/xsl" href="../utils/xsl/changelog.xsl"');
 $DOMDocument->appendChild($xslt);
 
 $xmlRender->renderAsXmlDocument($changelog, $DOMDocument);
